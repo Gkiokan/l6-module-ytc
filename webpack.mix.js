@@ -4,6 +4,7 @@ require('laravel-mix-merge-manifest');
 const VuetifyLoaderPlugin = require('vuetify-loader/lib/plugin');
 
 mix.setPublicPath('../../public/modules/YTC/').mergeManifest();
+mix.setResourceRoot('/modules/YTC')
 
 mix.js(__dirname + '/Resources/assets/js/app.js', 'app.js')
     .sass( __dirname + '/Resources/assets/sass/app.scss', 'app.css');
