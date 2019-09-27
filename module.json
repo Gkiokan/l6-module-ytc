@@ -1,0 +1,13 @@
+{
+    "name": "YTC",
+    "alias": "ytc",
+    "description": "",
+    "keywords": [],
+    "order": 0,
+    "providers": [
+        "Gkiokan\\YTC\\Providers\\YTCServiceProvider"
+    ],
+    "aliases": {},
+    "files": [],
+    "requires": []
+}

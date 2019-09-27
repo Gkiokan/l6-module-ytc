@@ -1,0 +1,25 @@
+{
+    "name": "gkiokan/l6-module-ytc",
+    "description": "",
+    "authors": [
+        {
+            "name": "Gkiokan Sali",
+            "email": "me@gkiokan.net"
+        }
+    ],
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Gkiokan\\YTC\\Providers\\YTCServiceProvider"
+            ],
+            "aliases": {
+
+            }
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "Gkiokan\\YTC\\": ""
+        }
+    }
+}
