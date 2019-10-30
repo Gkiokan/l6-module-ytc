@@ -1,10 +1,18 @@
 <template>
     <v-app>
+
+      <AppSystemBar />
+
+      <AppDrawer />
+
+      <AppBar />
+
       <v-content>
-        <v-container fluid class="fill-height">
           <child />
-        </v-container>
       </v-content>
+
+      <AppFooter />
+
     </v-app>
 </template>
 

@@ -5,15 +5,34 @@
 // const PasswordReset = () => import('~/pages/auth/password/reset').then(m => m.default || m)
 
 const NotFound = () => import(__dirname + '/../pages/errors/404').then(m => m.default || m)
-const Welcome = () => import(__dirname + '/../pages/welcome').then(m => m.default || m)
-const Home = () => import(__dirname + '/../pages/home').then(m => m.default || m)
 
-export default [
-  { path: '/ytc', name: 'welcome.redirect', component: Welcome, redirect: { name: 'welcome' } },
-  { path: '/ytc/home', name: 'home', component: Home },
-  { path: '/ytc/welcome', name: 'welcome', component: Welcome },
+// helper
+function loadTemplate(pre, page){
+    // return () => import(__dirname + '/../pages/' + pre + page).then(m => m.default || m)
+    return () => import('~/pages/' + pre + page).then(m => m.default || m)
+}
+function loadPage(page){
+    return loadTemplate('', page)
+}
 
-  { path: '/ytc/login', name: 'login', component: () => import(__dirname + '/../pages/auth/login').then(m => m.default || m) },
+function loadError(page){
+    return loadTemplate('errors/', page)
+}
 
-  { path: '*', component: NotFound }
+// page routes
+import pages from './pages'
+
+// core routes
+let coreRoutes = [
+  { path: '/ytc', redirect: { name: 'home' } },
+  { path: '/ytc/login', name: 'login', component: loadPage('auth/login') },
+  { path: '*', component: loadPage('errors/404') }
 ]
+
+// help
+let routes = []
+routes.push(...pages, ...coreRoutes)
+
+// console.log(routes)
+
+export default routes

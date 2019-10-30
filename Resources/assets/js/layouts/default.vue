@@ -1,9 +1,9 @@
 <template>
   <v-app id="inspire">
 
-    <AppDrawer ref="AppDrawer"/>
+    <AppDrawer />
 
-    <AppBar @update:drawer="$refs.AppDrawer.drawer = !$refs.AppDrawer.drawer" />
+    <AppBar />
 
     <v-content>
       <v-container fluid xclass="fill-height">

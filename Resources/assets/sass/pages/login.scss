@@ -1,0 +1,38 @@
+.page.login {
+
+    .background {
+        img {
+            &:nth-child(1){
+                top: 20%; left: 30%;
+            }
+
+            &:nth-child(2){
+                top: 50%; left: 50%;
+            }
+        }
+    }
+
+    .login_box {
+        max-width: 400px;
+
+        .logo {
+            width: 100%;
+            margin-bottom: 5px;
+        }
+
+        .v-card {
+            text-align: center;
+            width: 100%;
+            padding: 40px 30px 10px 30px;
+
+            .btn {
+                margin-top: 50px;
+            }
+        }
+
+        .v-text-field {
+            text-align: center;
+        }
+
+    }
+}

@@ -8,6 +8,7 @@
 import Vue from 'vue'
 
 import './app'
+import './page'
 
 const requireContext = require.context('./', false, /.*\.vue$/)
 const layouts = requireContext.keys()

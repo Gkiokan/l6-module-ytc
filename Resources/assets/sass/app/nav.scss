@@ -1,0 +1,22 @@
+.v-navigation-drawer,
+.v-navigation-drawer--clipped:not(.v-navigation-drawer--temporary):not(.v-navigation-drawer--is-mobile) {
+    // z-index: 10;
+}
+
+.v-toolbar__content {
+    .v-toolbar__items {
+        .v-btn {
+            &:before {
+                // transition: all .3s;
+            }
+        }
+
+        .v-btn--active {
+            &:before,
+            &:focus::before {
+                height: 3px;
+                opacity: 1;
+            }
+        }
+    }
+}
