@@ -4,10 +4,12 @@ let routes = []
 
 pages.map( route => {
     let name = route.path.name
+    let path = route.path.path ? route.path.path : name
+    let component = route.component ? route.component : name
     let o = { 
-        path: '/ytc/' + name,
+        path: '/ytc/' + path,
         name:  name,
-        component: () => import(/* webpackChunkName: "pages/[name]" */ __dirname + '/../pages/' + name).then(m => m.default || m)
+        component: () => import(/* webpackChunkName: "pages/[name]" */ __dirname + '/../pages/' + component).then(m => m.default || m)
     }
     routes.push(o)
 })

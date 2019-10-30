@@ -12,5 +12,5 @@
 */
 
 Route::prefix('ytc')->group(function() {
-    Route::get('/{path?}', 'YTCController@index')->where('path', '(.*)');
+    Route::get('/{path?}', 'YTCController@index')->where('path', '(.*)')->name('ytc.index');
 });

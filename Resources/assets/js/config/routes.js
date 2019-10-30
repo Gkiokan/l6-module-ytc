@@ -10,6 +10,12 @@ export default [
         inNav: true,
     }, 
     {
+        title: 'Search',
+        path: { name: 'search.video', path: 'search/:video' },
+        component: 'search',
+        inNav: false,
+    }, 
+    {
         title: 'Gallery',
         path: { name: 'gallery' },
         inNav: true,
