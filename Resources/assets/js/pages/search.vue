@@ -38,6 +38,11 @@
                 <br>
                 ID: <b>{{ this.video }}</b> <br>
                 Time: <b>{{ currentTime }} </b> <br>
+                <br>
+                Found: <b> {{ data.video.found_at | getTime }} </b> <br>
+                Update: <b> {{ data.video.updated_at | getTime }} </b> <br>
+                <br>
+                Reporter: <b> {{ getUserName }} </b> <br>
             </v-col>
         </v-row>
         </v-container>
@@ -61,6 +66,7 @@ export default {
         full_image_url: '',
         defaultBackgroundImage: require('~/../images/bg/black_polygon_.jpg'),
         found: false,
+        data: null,
         message: { text: 'Waiting for your Video ID .... ', type: 'info' },
 
         YouTubeImageClass: {
@@ -78,10 +84,16 @@ export default {
         bgImage(){
             if(this.video && this.video.length < 4) return;
             if(this.found) return this.full_image_url
-
             return;
         },
-        currentTime(){ return moment().format('H:m DD.MM.Y') }
+
+        currentTime(){ return moment().format('H:m @ DD.MM.Y') },
+
+        getUserName(){
+            let user = this.data.user
+            if(!user) return "Guest"
+            if(user) return user.name
+        }
     },
 
     watch: {
@@ -108,7 +120,11 @@ export default {
     filters: {
         getDate(val){
             return moment(val).format('DD.MM.YYYY')
-        }
+        },
+
+        getTime(val){
+            return moment(val).format('H:mm @ DD.MM.Y')
+        },
     },
 
     methods: {
@@ -120,6 +136,7 @@ export default {
             axios.get('/api/ytc/v1/check-image/' + this.video)
                   .then((r) => {
                       var data = r.data
+                      this.data = data
                       this.found = data.found
                       this.full_image_url = data.thumbnail
 
