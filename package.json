@@ -27,7 +27,7 @@
     "cross-env": "^6.0.0",
     "eslint": "^5.16.0",
     "eslint-plugin-vue": "^5.0.0",
-    "laravel-mix": "^4.0.7",
+    "laravel-mix": "^5.0.0",
     "laravel-mix-merge-manifest": "^0.1.2",
     "lodash": "^4.17.15",
     "material-design-icons": "^3.0.1",

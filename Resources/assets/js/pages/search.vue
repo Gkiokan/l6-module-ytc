@@ -39,7 +39,7 @@
                 ID: <b>{{ this.video }}</b> <br>
                 Time: <b>{{ currentTime }} </b> <br>
                 <br>
-                Found: <b> {{ data.video.found_at | getTime }} </b> <br>
+                Found: <b> {{ data.video.created_at | getTime }} </b> <br>
                 Update: <b> {{ data.video.updated_at | getTime }} </b> <br>
                 <br>
                 Reporter: <b> {{ getUserName }} </b> <br>

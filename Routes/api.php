@@ -13,13 +13,14 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::middleware('auth:api')->get('/ytc', function (Request $request) {
-    return $request->user();
-});
+// Route::middleware('auth:api')->get('/ytc', function (Request $request) {
+//     return $request->user();
+// });
 
 Route::group([
   'prefix' => 'ytc/v1',
   'as'     => 'ytc.',
 ], function(){
     Route::get('check-image/{video_id}', 'YouTubeController@check_image_exists')->name('check-image');
+    Route::get('videos/latest','YTCController@latest')->name('latest');
 });

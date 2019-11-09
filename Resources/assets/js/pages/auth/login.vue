@@ -25,7 +25,7 @@
                       <v-select v-model="select" :items="items" :error-messages="selectErrors" label="Item" required v-if="false" />
                       <v-checkbox v-model="remember_me" :error-messages="checkboxErrors" label="Remember me?" required v-if="false" />
 
-                      <v-btn class='btn' rounded elevation="0" minHeight="50 "@click="$router.push({ name: 'home' })"> Login </v-btn>
+                      <v-btn class='btn' rounded elevation="0" minHeight="50 "@click.native="$router.push({ name: 'home' })"> Login </v-btn>
 
                       <p>
                           Username: admin <br>
@@ -119,12 +119,12 @@ export default {
             await this.$store.dispatch('auth/fetchUser')
 
             if(this.callback == false)
-              this.$router.push({ path: 'customers' })
+              this.$router.push({ name: 'home' })
             else
-              this.$router.push({ path: 'dashboard '})
+              this.$router.push({ name: 'home '})
 
         } catch (e) {
-            console.log(e)
+            console.log(e.response)
             swal('Login Fehler', 'Benutzername oder Password falsch', 'error')
             return;
         }

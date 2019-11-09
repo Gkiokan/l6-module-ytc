@@ -33,6 +33,6 @@ let coreRoutes = [
 let routes = []
 routes.push(...pages, ...coreRoutes)
 
-// console.log(routes)
+console.log(routes)
 
 export default routes

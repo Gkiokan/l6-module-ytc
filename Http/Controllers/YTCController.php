@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Routing\Controller;
 
+use Gkiokan\YTC\Models\Video;
+
 class YTCController extends Controller
 {
     /**
@@ -16,4 +18,15 @@ class YTCController extends Controller
     {
         return view('ytc::index');
     }
+
+
+    public function latest(){
+        $videos = Video::orderBy('id', 'DESC')->get();
+
+        return response()->json([
+            'videos'  => $videos,
+        ]);
+    }
+
+
 }

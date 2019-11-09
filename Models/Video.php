@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Video extends Model
 {
-    protected $fillable = ['video_id', 'found_at', 'expired_at'];
+    protected $fillable = ['user_id', 'video_id', 'url', 'expired_at'];
 
     public function user(){
         return $this->belongsTo(\App\User::class);

@@ -18,7 +18,7 @@ class CreateVideosTable extends Migration
 
             $table->integer('user_id')->default(0);
             $table->string('video_id')->default(null)->nullable();
-            $table->datetime('found_at')->default(null)->nullable();
+            $table->string('url')->default(null)->nullable();
             $table->datetime('expired_at')->default(null)->nullable();
 
             $table->timestamps();

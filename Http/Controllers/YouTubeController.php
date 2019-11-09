@@ -37,7 +37,7 @@ class YouTubeController extends Controller
           if(!$found and self::$reset_url_when_video_not_found) $url = '';
 
           // validate video id in database
-          $video = $this->save($video_id, $found);
+          $video = $this->save($video_id, $found, $url);
 
           return response()->json([
               'found'     => $found,
@@ -105,7 +105,7 @@ class YouTubeController extends Controller
 
 
       // Store the Video if not exists
-      public function save($video_id=null, $found=null){
+      public function save($video_id=null, $found=null, $url=null){
             // find the video
             $video = Video::where('video_id', $video_id)->with(['user'])->first();
 
@@ -125,7 +125,7 @@ class YouTubeController extends Controller
             else:
                 // Video even not exists, lets add the video
                 if($found)
-                $video = Video::create([ 'user_id' => 0, 'video_id' => $video_id, 'found_at' => new Carbon() ]);
+                $video = Video::create([ 'user_id' => 0, 'video_id' => $video_id, 'url' => $url ]);
             endif;
 
             return $video;

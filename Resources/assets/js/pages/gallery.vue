@@ -10,17 +10,16 @@
           <v-container>
           <v-row >
               <v-col class='col-xs-12 col-md-6 col-lg-4 col-xl-3' v-for="(video,i) in videos" :key="'x_'+i">
-
+                  <v-img :src="video.url" />
               </v-col>
           </v-row>
           </v-container>
-
 
     </div>
 </template>
 
 <script>
-import projects from '~/data/projects'
+import axios from 'axios'
 
 export default {
     layout: 'full',
@@ -31,7 +30,17 @@ export default {
     }},
 
     mounted(){
-        // console.log(this)
+        this.load()
+    },
+
+    methods: {
+        load(){
+            axios.get('/api/ytc/v1/videos/latest')
+                 .then( r => {
+                      this.videos = r.data.videos
+                 })
+                 .catch( e => console.log(e) )
+        }
     }
 }
 </script>
